@@ -5,12 +5,12 @@ import '@testing-library/jest-dom/extend-expect';
 import Parent from './index';
 
 describe('Parent', () => {
-  it('Should render one stage on the screen', () => {
+  it('Should render Parent and one Child on the screen', () => {
     const { container } = render(<Parent />);
     expect(container).toMatchSnapshot();
   });
 
-  it('Should have 4 stages on the screen', () => {
+  it('Should render all 4 Childs on the screen', () => {
     jest.useFakeTimers();
 
     render(<Parent />);
@@ -34,6 +34,15 @@ describe('Parent', () => {
       jest.runAllTimers();
     });
 
-    expect(screen.getByAltText('OMG, we should hire him')).toBeDefined();
   });
+
+  it('Should render a final message on Parent', () => {
+    render(<Parent />);
+
+    act(() => {
+      jest.runAllTimers(); // trigger setTimeout
+    });
+
+    expect(screen.getByAltText('OMG, we should hire him')).toBeDefined();
+  })
 });

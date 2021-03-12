@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Parent Should render one stage on the screen 1`] = `
+exports[`Parent Should render Parent and one Child on the screen 1`] = `
 <div>
   <div
     class="sc-fzoLsD CSqIi"
